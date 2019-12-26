@@ -25,10 +25,10 @@ def main(args):
         for i in list(range(args.repeat)):
             with torch.autograd.profiler.record_function("label-"+str(i)):
                 model(input)
-    prof.export_chrome_trace('./trace/'+
+    prof.export_chrome_trace('./trace/V100_16G/'+
         str(args.num_layers)+'.'+str(args.N)+'.'+
         str(args.h)+'.'+str(args.w)+'.'+str(args.c1)+'.'
-        +str(args.c2)+'.'+str(args.g)+'.'+'trace')
+        +str(args.c2)+'.'+str(args.group)+'.'+'trace')
     time = 0
     for i in prof.key_averages():
         if i.key.startswith('label-'):
