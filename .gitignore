@@ -6,3 +6,5 @@
 *.prof
 *.metrics
 *.sw*
+*.csv
+*.trace
