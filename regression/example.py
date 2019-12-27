@@ -1,7 +1,5 @@
 import numpy as np
 import statsmodels.api as sm
-spector_data = sm.datasets.spector.load(as_pandas=False)
-spector_data.exog = sm.add_constant(spector_data.exog, prepend=False)
 x = np.array([1, 2, 3, 4, 5])
 X = np.column_stack((x, x**2))
 X = sm.add_constant(X)
