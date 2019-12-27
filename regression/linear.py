@@ -8,7 +8,6 @@ def linear_regression(y, X):
     mod = sm.OLS(y, X)
     res = mod.fit()
     return res
-#    print(res.summary())
 
 def read_csv(filename):
     data = []
@@ -67,7 +66,6 @@ def group_regression(data_dict, show_plot=False):
     labels = []
     for i in list(range(len(data_dict['group']))):
         labels.append(str([int(data_dict['c1'][i][0]), int(data_dict['c2'][i][0])]))
-#        print(data_dict['group'][i])
 
         x = data_dict['group'][i][:-2]
         y = data_dict['time_act'][i][:-2]
