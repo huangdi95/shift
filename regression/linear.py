@@ -1,6 +1,7 @@
 import numpy as np
 import statsmodels.api as sm
 import csv
+import matplotlib.pyplot as plt
 
 def linear_regression(x, y):
     X = np.column_stack((x, 1/x))
@@ -48,17 +49,31 @@ def preprocess(data_dict):
     data_dict.update({'time_act': new_time_act[1:]})
     return data_dict
     
+def figplt(data_x, data_y, params, start=0.1, end=512):
+    x = np.linspace(start, end, 1000, endpoint=True)
+    a = params[2]
+    b = params[1]
+    c = params[0]
+    y = a / x + b * x + c
+    plt.plot(x, y)
+    plt.scatter(data_x, data_y)
+    
 
 def main():
     data_dict = read_csv('./V100-16GB.csv')
     data_dict = preprocess(data_dict)
+    labels = []
     for i in list(range(len(data_dict['group']))):
+        labels.append(str([int(data_dict['c1'][i][0]), int(data_dict['c2'][i][0])]))
 #        print(data_dict['group'][i])
         res = linear_regression(data_dict['group'][i][:-2], data_dict['time_act'][i][:-2])
         if res.rsquared < 0.9:
             print(data_dict['c1'][i][0], data_dict['c2'][i][0])
             print('Parameters: ', res.params)
             print('R2: ', res.rsquared)
+        figplt(data_dict['group'][i][:-2], data_dict['time_act'][i][:-2], res.params)
+    plt.legend(labels=labels)
+    plt.show()
 
 if __name__ == '__main__':
     main()
