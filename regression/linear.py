@@ -48,7 +48,7 @@ def preprocess(data_dict):
     data_dict.update({'time_act': new_time_act[1:]})
     return data_dict
     
-def figplt(data_x, data_y, params=None, mode='nike', start=0.1, end=512):
+def figplt(data_x, data_y, params=None, mode='nike', start=0.9, end=512):
     x = np.linspace(start, end, 1000, endpoint=True)
     if mode == 'nike':
         assert params is not None, 'params needed for nike plot!'
@@ -88,6 +88,8 @@ def group_regression(data_dict, show_plot=False):
         if show_plot:
             figplt(x, y, res.params)
     if show_plot:
+        plt.xlabel('group')
+        plt.ylabel('time')
         plt.legend(labels=labels)
         plt.show()
     return group_params_list, group_R2_list
@@ -108,6 +110,8 @@ def channel_regression(data_dict, group_params_list, show_plot=False):
     print('Parameters: ', res.params)
     print('R2: ', res.rsquared)
     if show_plot:
+        plt.xlabel('c1c2')
+        plt.ylabel('A')
         figplt(X, y, res.params, 'linear', 0, 7e6)
         plt.legend(labels='channel')
         plt.show()
@@ -115,14 +119,14 @@ def channel_regression(data_dict, group_params_list, show_plot=False):
 def main():
     data_dict = read_csv('./V100-16GB.csv')
     data_dict = preprocess(data_dict)
-    group_params_list, group_R2_list = group_regression(data_dict, False)
-    for i in list(range(len(group_params_list))):
-        print(group_R2_list[i], group_params_list[i][2])
-    print(np.array(group_params_list))
-    figplt(group_R2_list, np.array(group_params_list)[:, 2], mode='scatter') 
-    plt.legend(labels='channel')
-    plt.show()
-#    channel_regression(data_dict, group_params_list, False)
+    group_params_list, group_R2_list = group_regression(data_dict, True)
+    #for i in list(r#ange(len(group_params_list))):
+    #    print(group_R2_list[i], group_params_list[i][2])
+    #print(np.array(group_params_list))
+    #figplt(group_R2_list, np.array(group_params_list)[:, 2], mode='scatter') 
+    #plt.legend(labels='channel')
+    #plt.show()
+    channel_regression(data_dict, group_params_list, True)
 
 if __name__ == '__main__':
     main()
