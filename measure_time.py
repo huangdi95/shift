@@ -73,7 +73,7 @@ def write_to_csv(args, time_act):
     efficiency = time_compute / time_act
     P_act = efficiency * P
     g_balance = ((N*Bandwidth*h*w/type_byte-P_act)*c1*c2) / (N*P_act*h*w*(c1+c2))
-    data = [[P, Bandwidth, N, h, w, c1, c2, group, num_layers, type_byte,
+    data = [['', P, Bandwidth, N, h, w, c1, c2, group, num_layers, type_byte,
         input_size, weight_size, output_size, FLOPs, IO,
         time_compute, time_io, time_total, time_act, efficiency,
         P_act, g_balance]]
@@ -96,7 +96,8 @@ def parse_args():
     parser.add_argument('--Bandwidth', default=0.9, type=float)
     parser.add_argument('--type_byte', default=4, type=int)
     parser.add_argument('--filename', default='output.csv', type=str)
-    parser.add_argument('--repeat', default='10', type=int)
+    parser.add_argument('--repeat', default=10, type=int)
+    parser.add_argument('--gpu-type', default='V100-16GB', type=str)
     args = parser.parse_args()
     if args.w is None:
         args.w = args.h
@@ -138,5 +139,12 @@ def mat(args):
 
 if __name__ == '__main__':
     args = parse_args()
+    print('Creating csv...')
+    with open(args.filename, 'a+', newline='') as f:
+        w = csv.writer(f)
+        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'N', 'h', 'w', 'c1', 'c2',
+            'group', 'num_layers', 'type_byte', 'input_size', 'weight_size', 'output_size', 
+            'FLOPS', 'IO(load or store)', 'time_c(us)', 'time_m(us)', 'time_total(us)', 
+            'time_act', 'efficiency_c', 'P_act', 'g_best']])
     main(args)
 #    mat(args)
