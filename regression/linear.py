@@ -25,6 +25,7 @@ def read_csv(filename):
     return data_dict
 
 def preprocess(data_dict):
+    ############## 'group' must be continuous! #################
     new_group = [] 
     new_c1 = []
     new_c2 = []
@@ -47,21 +48,27 @@ def preprocess(data_dict):
     data_dict.update({'time_act': new_time_act[1:]})
     return data_dict
     
-def figplt(data_x, data_y, params, mode='nike', start=0.1, end=512):
+def figplt(data_x, data_y, params=None, mode='nike', start=0.1, end=512):
     x = np.linspace(start, end, 1000, endpoint=True)
     if mode == 'nike':
+        assert params is not None, 'params needed for nike plot!'
         a = params[1]
         b = params[2]
         c = params[0]
         y = a / x + b * x + c
     elif mode == 'linear':
+        assert params is not None, 'params needed for linear plot!'
         a = params[1]
         c = params[0]
         y = a * x + c
+    elif mode == 'scatter':
+        plt.scatter(data_x, data_y)
+        return
     plt.plot(x, y)
     plt.scatter(data_x, data_y)
 
 def group_regression(data_dict, show_plot=False):
+    group_R2_list = []
     group_params_list = []
     labels = []
     for i in list(range(len(data_dict['group']))):
@@ -77,12 +84,13 @@ def group_regression(data_dict, show_plot=False):
             print('Parameters: ', res.params)
             print('R2: ', res.rsquared)
         group_params_list.append(res.params)
+        group_R2_list.append(res.rsquared)
         if show_plot:
             figplt(x, y, res.params)
     if show_plot:
         plt.legend(labels=labels)
         plt.show()
-    return group_params_list 
+    return group_params_list, group_R2_list
 
 def channel_regression(data_dict, group_params_list, show_plot=False):
     y = [] 
@@ -107,8 +115,14 @@ def channel_regression(data_dict, group_params_list, show_plot=False):
 def main():
     data_dict = read_csv('./V100-16GB.csv')
     data_dict = preprocess(data_dict)
-    group_result_list = group_regression(data_dict)
-    channel_regression(data_dict, group_result_list, True)
+    group_params_list, group_R2_list = group_regression(data_dict, False)
+    for i in list(range(len(group_params_list))):
+        print(group_R2_list[i], group_params_list[i][2])
+    print(np.array(group_params_list))
+    figplt(group_R2_list, np.array(group_params_list)[:, 2], mode='scatter') 
+    plt.legend(labels='channel')
+    plt.show()
+#    channel_regression(data_dict, group_params_list, False)
 
 if __name__ == '__main__':
     main()
