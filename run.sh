@@ -1,8 +1,7 @@
 #!/bin/bash
-gpu_id=2
-for gpu_id in 0 1 2 3
+for gpu_id in 1
 do
-    gpu_type="V100-16GB-"$gpu_id
+    gpu_type="V100-32GB-"$gpu_id
     csv=$gpu_type".csv"
     echo $csv
     echo "remove "$gpu_type".csv"
@@ -18,7 +17,7 @@ do
                 fi
                 echo "running group="$g "c1="$c1 "c2="$c2
                 CUDA_VISIBLE_DEVICES=$gpu_id \
-                python measure_time.py --group=$g --c1=$c1 --c2=$c2 --filename=$csv \
+                python measure_time.py --group=$g --c1=$c1 --c2=$c2 --filename=$csv --gpu-type=$gpu_type \
                 2>&1 | tee $gpu_type.log
             done
         done
