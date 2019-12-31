@@ -1,0 +1,14 @@
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2', momentum=0.9, output_dir='./checkpoint/shufflenet_v2', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.1839540004730225
+Loading validation data
+Creating data loaders
+Creating model
+Traceback (most recent call last):
+  File "train.py", line 345, in <module>
+    main(args)
+  File "train.py", line 205, in main
+    model = torchvision.models.__dict__[args.model](pretrained=args.pretrained)
+KeyError: 'shufflenet_v2'

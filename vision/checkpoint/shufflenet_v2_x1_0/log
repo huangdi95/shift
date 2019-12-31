@@ -1,0 +1,2211 @@
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.187690496444702
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:23:03  loss: 6.9279 (6.9279)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 1.7694  data: 1.5379  max mem: 1175
+Test:  [100/782]  eta: 0:00:38  loss: 6.9066 (6.9083)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7735)  time: 0.0559  data: 0.0417  max mem: 1175
+Test:  [200/782]  eta: 0:00:28  loss: 6.9085 (6.9085)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3887)  time: 0.0318  data: 0.0187  max mem: 1175
+Test:  [300/782]  eta: 0:00:22  loss: 6.9133 (6.9091)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.2596)  time: 0.0389  data: 0.0255  max mem: 1175
+Test:  [400/782]  eta: 0:00:17  loss: 6.9123 (6.9089)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.1948)  time: 0.0350  data: 0.0203  max mem: 1175
+Test:  [500/782]  eta: 0:00:12  loss: 6.9012 (6.9088)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.4678)  time: 0.0476  data: 0.0329  max mem: 1175
+Test:  [600/782]  eta: 0:00:07  loss: 6.9063 (6.9087)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.5200)  time: 0.0362  data: 0.0218  max mem: 1175
+Test:  [700/782]  eta: 0:00:03  loss: 6.8991 (6.9081)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.5572)  time: 0.0420  data: 0.0272  max mem: 1175
+Test: Total time: 0:00:33
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.348632335662842
+Loading validation data
+Creating data loaders
+Creating model
+Traceback (most recent call last):
+  File "train.py", line 345, in <module>
+    main(args)
+  File "train.py", line 205, in main
+    model = torchvision.models.__dict__[args.model](pretrained=args.pretrained)
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torchvision/models/shufflenetv2.py", line 173, in shufflenet_v2_x1_0
+    [4, 8, 4], [24, 116, 232, 464, 1024], **kwargs)
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torchvision/models/shufflenetv2.py", line 135, in _shufflenetv2
+    model = ShuffleNetV2(*args, **kwargs)
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torchvision/models/shufflenetv2.py", line 107, in __init__
+    seq = [InvertedResidual(input_channels, output_channels, 2)]
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torchvision/models/shufflenetv2.py", line 50, in __init__
+    nn.Conv2d(inp, branch_features, kernel_size=1, stride=1, padding=0, bias=False, group=2),
+TypeError: __init__() got an unexpected keyword argument 'group'
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.252579689025879
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:32:18  loss: 6.8961 (6.8961)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.4792  data: 2.0779  max mem: 1174
+Test:  [100/782]  eta: 0:00:44  loss: 6.9146 (6.9093)  acc1: 0.0000 (0.7735)  acc5: 0.0000 (0.7735)  time: 0.0453  data: 0.0291  max mem: 1174
+Test:  [200/782]  eta: 0:00:34  loss: 6.8963 (6.9073)  acc1: 0.0000 (0.3887)  acc5: 0.0000 (0.3887)  time: 0.0495  data: 0.0305  max mem: 1174
+Test:  [300/782]  eta: 0:00:27  loss: 6.8999 (6.9076)  acc1: 0.0000 (0.2596)  acc5: 0.0000 (0.7787)  time: 0.0636  data: 0.0412  max mem: 1174
+Test:  [400/782]  eta: 0:00:21  loss: 6.9066 (6.9075)  acc1: 0.0000 (0.1948)  acc5: 0.0000 (0.5845)  time: 0.0709  data: 0.0520  max mem: 1174
+Test:  [500/782]  eta: 0:00:15  loss: 6.9024 (6.9076)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.6238)  time: 0.0327  data: 0.0146  max mem: 1174
+Test:  [600/782]  eta: 0:00:09  loss: 6.9086 (6.9078)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.5200)  time: 0.0608  data: 0.0436  max mem: 1174
+Test:  [700/782]  eta: 0:00:04  loss: 6.8970 (6.9079)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.4458)  time: 0.0451  data: 0.0249  max mem: 1174
+Test: Total time: 0:00:40
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.23268723487854
+Loading validation data
+Creating data loaders
+Creating model
+label-z
+267549.6344909668
+Test:  [  0/782]  eta: 0:28:56  loss: 6.9137 (6.9137)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.2201  data: 1.6681  max mem: 1174
+label-z
+57348.033935546875
+label-z
+41902.881103515625
+label-z
+72410.05242919922
+label-z
+55822.55847167969
+label-z
+49643.871673583984
+label-z
+24234.686950683594
+label-z
+25367.169464111328
+label-z
+17317.247650146484
+label-z
+27183.390747070312
+label-z
+18595.551513671875
+label-z
+25658.751037597656
+label-z
+23403.103973388672
+label-z
+25483.617065429688
+label-z
+16316.352050781248
+label-z
+32882.71875
+label-z
+23030.113220214844
+label-z
+18548.960845947266
+label-z
+32884.704833984375
+label-z
+16286.591156005858
+label-z
+26369.120849609375
+label-z
+16233.313140869139
+label-z
+19655.838623046875
+label-z
+27217.312377929688
+label-z
+19808.448364257812
+label-z
+22383.00668334961
+label-z
+24918.208984375
+label-z
+23180.160400390625
+label-z
+23575.0078125
+label-z
+17248.064575195312
+label-z
+19537.472076416016
+label-z
+17734.206298828125
+label-z
+18786.59146118164
+label-z
+28426.143310546875
+label-z
+19405.184020996094
+label-z
+23889.91961669922
+label-z
+34688.44836425781
+label-z
+18837.696166992188
+label-z
+22898.24005126953
+label-z
+45110.27001953125
+label-z
+22655.64663696289
+label-z
+27354.112670898438
+label-z
+16652.670776367188
+label-z
+24079.455017089844
+label-z
+25003.23211669922
+label-z
+24265.279541015625
+label-z
+18583.166931152344
+label-z
+30360.287475585938
+label-z
+24900.577514648438
+label-z
+28164.06280517578
+label-z
+40937.79284667969
+label-z
+19347.135162353516
+label-z
+17335.295501708984
+label-z
+16841.182739257812
+label-z
+25741.375915527344
+label-z
+23016.385314941406
+label-z
+24791.2001953125
+label-z
+31175.6806640625
+label-z
+25288.063598632812
+label-z
+26266.337524414062
+label-z
+27809.185272216797
+label-z
+17503.13641357422
+label-z
+28179.807037353516
+label-z
+26187.360809326172
+label-z
+26031.071746826172
+label-z
+18141.15234375
+label-z
+25943.136169433594
+label-z
+28986.14434814453
+label-z
+34047.23193359375
+label-z
+17025.503051757812
+label-z
+26182.016723632812
+label-z
+38794.01788330078
+label-z
+22676.927978515625
+label-z
+19624.704711914062
+label-z
+17382.30255126953
+label-z
+20396.73516845703
+label-z
+23916.352294921875
+label-z
+25494.175720214844
+label-z
+18121.85662841797
+label-z
+29712.800842285156
+label-z
+23700.191619873047
+label-z
+27103.871826171875
+label-z
+24019.00701904297
+label-z
+26117.889282226562
+label-z
+26274.655395507812
+label-z
+25076.51171875
+label-z
+24007.26287841797
+label-z
+25501.311767578125
+label-z
+16585.440551757812
+label-z
+24349.630981445312
+label-z
+22594.976135253906
+label-z
+16316.224060058592
+label-z
+24652.063903808594
+label-z
+23329.313415527344
+label-z
+18819.231079101562
+label-z
+24673.951904296875
+label-z
+19129.695251464844
+label-z
+22656.767517089844
+label-z
+33000.12683105469
+label-z
+18704.57745361328
+label-z
+19473.72918701172
+Test:  [100/782]  eta: 0:01:59  loss: 6.9015 (6.9074)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7735)  time: 0.1443  data: 0.0001  max mem: 1174
+label-z
+23645.150299072266
+label-z
+25535.456176757812
+label-z
+26157.95263671875
+label-z
+33649.662536621094
+label-z
+23932.705200195312
+label-z
+23886.432220458984
+label-z
+24149.47137451172
+label-z
+22857.53680419922
+label-z
+19403.55242919922
+label-z
+23634.751220703125
+label-z
+25833.056579589844
+label-z
+23178.976043701172
+label-z
+24925.472045898438
+label-z
+24155.520874023438
+label-z
+26321.695373535156
+label-z
+17266.880798339844
+label-z
+28368.832885742188
+label-z
+16870.079223632812
+label-z
+19518.11264038086
+label-z
+23355.743774414062
+label-z
+18553.054626464844
+label-z
+19700.19171142578
+label-z
+29715.968322753906
+label-z
+25040.0966796875
+label-z
+25412.352020263672
+label-z
+26795.361358642578
+label-z
+23648.064361572266
+label-z
+19453.598754882812
+label-z
+23323.743041992188
+label-z
+31805.151977539062
+label-z
+25028.416137695312
+label-z
+21100.958740234375
+label-z
+23790.624755859375
+label-z
+20006.87954711914
+label-z
+23019.007202148438
+label-z
+19383.32696533203
+label-z
+16917.024536132812
+label-z
+32187.84094238281
+label-z
+24521.05615234375
+label-z
+17547.422729492188
+label-z
+25531.48895263672
+label-z
+18657.439910888672
+label-z
+30406.942932128906
+label-z
+16479.102905273438
+label-z
+28455.934692382812
+label-z
+23885.88754272461
+label-z
+26397.119720458984
+label-z
+22109.72821044922
+label-z
+25046.655883789062
+label-z
+18220.736877441406
+label-z
+31016.127197265625
+label-z
+28242.144653320312
+label-z
+29718.591735839844
+label-z
+23564.032348632812
+label-z
+27641.439025878906
+label-z
+23839.615020751953
+label-z
+22206.624450683594
+label-z
+24300.447998046875
+label-z
+28295.935180664062
+label-z
+30362.08041381836
+label-z
+24086.496154785156
+label-z
+33035.039611816406
+label-z
+22585.375122070312
+label-z
+20336.159240722656
+label-z
+39230.07946777344
+label-z
+25560.224548339844
+label-z
+18516.734771728516
+label-z
+21396.544525146484
+label-z
+23275.072021484375
+label-z
+19442.94549560547
+label-z
+22215.840240478516
+label-z
+19627.77569580078
+label-z
+26231.521484375
+label-z
+29042.592224121094
+label-z
+26308.06396484375
+label-z
+18648.705078125
+label-z
+20455.13592529297
+label-z
+33097.24627685547
+label-z
+27187.3271484375
+label-z
+23250.048370361328
+label-z
+19307.679229736328
+label-z
+17272.00064086914
+label-z
+27235.0068359375
+label-z
+23918.559814453125
+label-z
+21365.69610595703
+label-z
+17441.72772216797
+label-z
+32949.056213378906
+label-z
+23388.735473632812
+label-z
+26211.77685546875
+label-z
+22992.382873535156
+label-z
+17015.36016845703
+label-z
+35184.41564941406
+label-z
+26910.462829589844
+label-z
+19804.288360595703
+label-z
+23524.76885986328
+label-z
+28064.57489013672
+label-z
+17569.537353515625
+label-z
+28434.65753173828
+label-z
+23314.9775390625
+label-z
+25650.432525634766
+Test:  [200/782]  eta: 0:01:35  loss: 6.9016 (6.9084)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3887)  time: 0.1532  data: 0.0001  max mem: 1174
+label-z
+17952.03125
+label-z
+20323.776580810547
+label-z
+22382.432678222656
+label-z
+19608.86297607422
+label-z
+24668.79815673828
+label-z
+28977.79266357422
+label-z
+33712.99157714844
+label-z
+29892.158813476562
+label-z
+25741.185455322266
+label-z
+29274.817443847656
+label-z
+28350.01678466797
+label-z
+22211.808074951172
+label-z
+20370.335021972656
+label-z
+16766.912231445312
+label-z
+30764.19219970703
+label-z
+24758.30551147461
+label-z
+19191.105682373047
+label-z
+26282.81607055664
+label-z
+32249.406982421875
+label-z
+23664.223419189453
+label-z
+19329.983642578125
+label-z
+23073.79150390625
+label-z
+18715.200592041016
+label-z
+16764.79852294922
+label-z
+23547.39141845703
+label-z
+33042.946197509766
+label-z
+16599.392517089844
+label-z
+20236.16143798828
+label-z
+16793.662963867188
+label-z
+39952.6103515625
+label-z
+16203.136260986328
+label-z
+26223.008056640625
+label-z
+29180.225219726562
+label-z
+25543.32861328125
+label-z
+22155.77703857422
+label-z
+19367.425415039062
+label-z
+17976.736267089844
+label-z
+20950.176208496094
+label-z
+24233.72735595703
+label-z
+19829.022827148438
+label-z
+27299.806884765625
+label-z
+16654.783752441406
+label-z
+27048.702880859375
+label-z
+23409.79119873047
+label-z
+26016.15982055664
+label-z
+34608.544494628906
+label-z
+24403.551879882812
+label-z
+24554.17547607422
+label-z
+27236.864990234375
+label-z
+16651.55111694336
+label-z
+19695.80780029297
+label-z
+16729.40838623047
+label-z
+19236.32012939453
+label-z
+24879.39306640625
+label-z
+21276.897033691406
+label-z
+23194.337158203125
+label-z
+31340.09552001953
+label-z
+22936.32049560547
+label-z
+17680.415771484375
+label-z
+25769.53662109375
+label-z
+16950.36865234375
+label-z
+26890.88116455078
+label-z
+32587.13491821289
+label-z
+32589.954193115238
+label-z
+23939.582580566406
+label-z
+22809.695739746094
+label-z
+17772.447387695312
+label-z
+33426.58953857422
+label-z
+17175.616271972656
+label-z
+27803.16778564453
+label-z
+24086.40087890625
+label-z
+27168.70458984375
+label-z
+33973.50500488281
+label-z
+19997.089630126953
+label-z
+24715.840209960938
+label-z
+16552.097778320312
+label-z
+35812.31872558594
+label-z
+16627.80792236328
+label-z
+19230.656951904297
+label-z
+25579.200622558594
+label-z
+26454.01580810547
+label-z
+17614.239379882812
+label-z
+20088.735961914062
+label-z
+23600.095275878906
+label-z
+30922.23895263672
+label-z
+24389.91943359375
+label-z
+42363.23455810547
+label-z
+16859.743255615234
+label-z
+27592.736389160156
+label-z
+17141.632537841797
+label-z
+29084.70391845703
+label-z
+27323.999755859375
+label-z
+25406.367736816406
+label-z
+26646.623748779297
+label-z
+24680.447875976562
+label-z
+19493.98486328125
+label-z
+27084.928161621094
+label-z
+26618.815856933594
+label-z
+23040.00030517578
+label-z
+27274.847198486328
+Test:  [300/782]  eta: 0:01:16  loss: 6.8976 (6.9084)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.5191)  time: 0.1478  data: 0.0001  max mem: 1174
+label-z
+20903.967651367188
+label-z
+27253.407318115234
+label-z
+24661.663940429688
+label-z
+19828.63949584961
+label-z
+24366.785034179688
+label-z
+27995.6806640625
+label-z
+23360.99188232422
+label-z
+26506.111450195312
+label-z
+17187.36050415039
+label-z
+26836.544555664062
+label-z
+23147.45587158203
+label-z
+17439.16827392578
+label-z
+33500.383850097656
+label-z
+26957.823364257812
+label-z
+20411.67987060547
+label-z
+17638.177490234375
+label-z
+20221.69613647461
+label-z
+24138.43182373047
+label-z
+20183.391967773438
+label-z
+22914.591735839844
+label-z
+20138.17645263672
+label-z
+36121.94982910156
+label-z
+24553.598724365234
+label-z
+22826.784240722656
+label-z
+20365.759887695312
+label-z
+24313.247619628906
+label-z
+19288.12713623047
+label-z
+23871.808685302734
+label-z
+23564.95928955078
+label-z
+24969.600463867188
+label-z
+23635.102996826172
+label-z
+19464.960540771484
+label-z
+23779.392028808594
+label-z
+25601.598205566406
+label-z
+16727.424194335938
+label-z
+26850.55926513672
+label-z
+24438.560791015625
+label-z
+45669.634521484375
+label-z
+23628.83233642578
+label-z
+27317.600189208984
+label-z
+24879.841674804688
+label-z
+26825.439514160156
+label-z
+17196.736450195312
+label-z
+20569.28106689453
+label-z
+24106.750610351562
+label-z
+24245.088012695312
+label-z
+25826.560333251953
+label-z
+23095.03988647461
+label-z
+21436.320251464844
+label-z
+24272.831298828125
+label-z
+35336.70458984375
+label-z
+23423.42398071289
+label-z
+25894.944458007812
+label-z
+17130.368041992188
+label-z
+19404.799743652344
+label-z
+23532.897338867188
+label-z
+31636.35302734375
+label-z
+16894.20880126953
+label-z
+36391.58673095703
+label-z
+17047.20101928711
+label-z
+26886.144104003906
+label-z
+22416.895935058594
+label-z
+27158.976013183594
+label-z
+35130.04797363281
+label-z
+24383.455627441406
+label-z
+28917.376342773438
+label-z
+27658.911987304688
+label-z
+21503.137451171875
+label-z
+23018.464813232422
+label-z
+20130.30535888672
+label-z
+23263.00811767578
+label-z
+25739.328338623047
+label-z
+24489.11883544922
+label-z
+20181.280151367188
+label-z
+24880.703735351562
+label-z
+34352.83154296875
+label-z
+23400.51055908203
+label-z
+29061.984252929688
+label-z
+18066.816467285156
+label-z
+18875.137084960938
+label-z
+27309.568420410156
+label-z
+26595.328125
+label-z
+27781.216674804688
+label-z
+19061.633239746094
+label-z
+26630.688385009766
+label-z
+24416.799377441406
+label-z
+26141.151000976562
+label-z
+17329.7275390625
+label-z
+38259.64630126953
+label-z
+18358.84799194336
+label-z
+29096.159790039062
+label-z
+25440.032470703125
+label-z
+25831.36001586914
+label-z
+24734.529296875
+label-z
+22901.919860839844
+label-z
+17829.056640625
+label-z
+26367.678588867188
+label-z
+17517.726196289062
+label-z
+39871.77508544922
+label-z
+25860.063934326172
+Test:  [400/782]  eta: 0:01:00  loss: 6.9107 (6.9083)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3897)  time: 0.1490  data: 0.0001  max mem: 1174
+label-z
+22539.455139160156
+label-z
+19891.616668701172
+label-z
+26462.23858642578
+label-z
+20605.472229003906
+label-z
+18520.672119140625
+label-z
+21437.75909423828
+label-z
+20043.776489257812
+label-z
+19974.176330566406
+label-z
+17123.52001953125
+label-z
+26971.649169921875
+label-z
+27766.04931640625
+label-z
+19609.248291015625
+label-z
+17143.61651611328
+label-z
+27443.42514038086
+label-z
+22273.119506835938
+label-z
+16998.97720336914
+label-z
+28501.344268798828
+label-z
+24737.822692871094
+label-z
+20852.991302490234
+label-z
+17201.502563476562
+label-z
+30810.912048339844
+label-z
+25883.072692871094
+label-z
+24739.038970947266
+label-z
+16815.4560546875
+label-z
+25530.400146484375
+label-z
+24264.736206054688
+label-z
+19511.26235961914
+label-z
+23009.217163085938
+label-z
+27735.519775390625
+label-z
+16419.329071044922
+label-z
+25450.686889648438
+label-z
+24309.441162109375
+label-z
+16342.206237792969
+label-z
+19214.400177001953
+label-z
+24078.655151367188
+label-z
+25845.98565673828
+label-z
+17135.103881835938
+label-z
+29534.27178955078
+label-z
+23144.224090576172
+label-z
+25863.422790527344
+label-z
+16588.287048339844
+label-z
+28135.808837890625
+label-z
+24022.208740234375
+label-z
+32127.583923339844
+label-z
+16719.232513427734
+label-z
+26681.888427734375
+label-z
+27320.60919189453
+label-z
+21813.567779541016
+label-z
+24907.42495727539
+label-z
+25593.055206298828
+label-z
+16466.81591796875
+label-z
+17102.272888183594
+label-z
+44389.121520996094
+label-z
+25252.41680908203
+label-z
+27678.01690673828
+label-z
+22706.52764892578
+label-z
+20830.08071899414
+label-z
+23806.559143066406
+label-z
+39535.391357421875
+label-z
+22922.68862915039
+label-z
+20796.99136352539
+label-z
+23972.92709350586
+label-z
+25151.616271972656
+label-z
+16844.863891601562
+label-z
+27006.398376464844
+label-z
+23718.847412109375
+label-z
+19727.392822265625
+label-z
+16653.85595703125
+label-z
+22821.921020507812
+label-z
+27215.87225341797
+label-z
+16620.67120361328
+label-z
+24822.655242919922
+label-z
+23392.833129882812
+label-z
+28510.52703857422
+label-z
+23927.039825439453
+label-z
+28724.801696777344
+label-z
+16562.975189208984
+label-z
+25186.303771972656
+label-z
+16436.96011352539
+label-z
+28299.58251953125
+label-z
+16547.167907714844
+label-z
+26413.887603759766
+label-z
+24027.80682373047
+label-z
+27347.96795654297
+label-z
+22692.512664794922
+label-z
+16602.94366455078
+label-z
+20516.51123046875
+label-z
+16736.672119140625
+label-z
+30162.847412109375
+label-z
+18096.73504638672
+label-z
+19625.472229003906
+label-z
+16756.830688476562
+label-z
+27076.287536621094
+label-z
+25175.232421875
+label-z
+41797.76095581055
+label-z
+23737.664184570312
+label-z
+42251.35870361328
+label-z
+17757.502563476562
+label-z
+25174.751037597656
+label-z
+24290.751342773438
+Test:  [500/782]  eta: 0:00:43  loss: 6.9043 (6.9084)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.4678)  time: 0.1537  data: 0.0001  max mem: 1174
+label-z
+29475.32763671875
+label-z
+25798.36782836914
+label-z
+22394.20831298828
+label-z
+26569.919494628906
+label-z
+17945.759643554688
+label-z
+27660.896453857422
+label-z
+25530.911560058594
+label-z
+29471.5185546875
+label-z
+20193.727905273438
+label-z
+26120.192016601562
+label-z
+17257.696411132812
+label-z
+28226.17694091797
+label-z
+17559.328674316406
+label-z
+46923.48986816406
+label-z
+22307.103271484375
+label-z
+20048.159729003906
+label-z
+23090.87908935547
+label-z
+33195.29699707031
+label-z
+16991.423095703125
+label-z
+22346.560302734375
+label-z
+23496.672119140625
+label-z
+16639.553131103516
+label-z
+26436.512481689453
+label-z
+23532.800048828125
+label-z
+25987.39193725586
+label-z
+28333.502563476562
+label-z
+34135.00762939453
+label-z
+18073.56707763672
+label-z
+24868.255737304688
+label-z
+17656.096313476562
+label-z
+26371.42352294922
+label-z
+31798.050048828125
+label-z
+43577.377197265625
+label-z
+25355.58447265625
+label-z
+26918.527404785156
+label-z
+26179.71270751953
+label-z
+25531.520904541016
+label-z
+19301.278930664062
+label-z
+16561.24835205078
+label-z
+28580.671264648438
+label-z
+18307.96856689453
+label-z
+26221.08819580078
+label-z
+16620.06283569336
+label-z
+25906.39959716797
+label-z
+16650.111694335938
+label-z
+32439.90078735352
+label-z
+23705.887939453125
+label-z
+21546.49530029297
+label-z
+27593.95294189453
+label-z
+27443.456665039062
+label-z
+18025.310668945312
+label-z
+35381.183654785156
+label-z
+24702.080139160156
+label-z
+26647.80731201172
+label-z
+26017.37548828125
+label-z
+20712.704345703125
+label-z
+26390.400512695312
+label-z
+22772.12762451172
+label-z
+19781.792541503906
+label-z
+22752.736938476562
+label-z
+28460.095428466797
+label-z
+16807.360290527344
+label-z
+27496.76678466797
+label-z
+22548.54425048828
+label-z
+28168.001403808594
+label-z
+25851.327209472656
+label-z
+20672.92803955078
+label-z
+23706.561157226562
+label-z
+19150.849060058594
+label-z
+24332.960357666016
+label-z
+28175.93621826172
+label-z
+18012.51239013672
+label-z
+25389.02392578125
+label-z
+24746.046325683594
+label-z
+24672.960327148438
+label-z
+24820.928680419922
+label-z
+23055.231323242188
+label-z
+33429.72497558594
+label-z
+17105.951416015625
+label-z
+20679.903686523438
+label-z
+25811.07290649414
+label-z
+35472.320556640625
+label-z
+16402.04769897461
+label-z
+27078.624877929688
+label-zNot using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.3125879764556885
+Loading validation data
+Creating data loaders
+Creating model
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+Traceback (most recent call last):
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 724, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/huangdi/anaconda3/lib/python3.7/queue.py", line 179, in get
+    self.not_empty.wait(remaining)
+  File "/home/huangdi/anaconda3/lib/python3.7/threading.py", line 300, in wait
+    gotit = waiter.acquire(True, timeout)
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 49550) is killed by signal: Aborted. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 345, in <module>
+    main(args)
+  File "train.py", line 239, in main
+    evaluate_time(model, criterion, data_loader_test, device=device)
+  File "train.py", line 56, in evaluate_time
+    for image, target in metric_logger.log_every(data_loader, print_freq, header):
+  File "/home/huangdi/shift/vision/utils.py", line 138, in log_every
+    for obj in iterable:
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 804, in __next__
+    idx, data = self._get_data()
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 761, in _get_data
+    success, data = self._try_get_data()
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 737, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str))
+RuntimeError: DataLoader worker (pid(s) 49550) exited unexpectedly
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.375885248184204
+Loading validation data
+Creating data loaders
+Creating model
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+Traceback (most recent call last):
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 724, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/huangdi/anaconda3/lib/python3.7/queue.py", line 179, in get
+    self.not_empty.wait(remaining)
+  File "/home/huangdi/anaconda3/lib/python3.7/threading.py", line 300, in wait
+    gotit = waiter.acquire(True, timeout)
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 49784) is killed by signal: Aborted. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 345, in <module>
+    main(args)
+  File "train.py", line 239, in main
+    evaluate_time(model, criterion, data_loader_test, device=device)
+  File "train.py", line 56, in evaluate_time
+    for image, target in metric_logger.log_every(data_loader, print_freq, header):
+  File "/home/huangdi/shift/vision/utils.py", line 138, in log_every
+    for obj in iterable:
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 804, in __next__
+    idx, data = self._get_data()
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 761, in _get_data
+    success, data = self._try_get_data()
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 737, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str))
+RuntimeError: DataLoader worker (pid(s) 49784) exited unexpectedly
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.343487501144409
+Loading validation data
+Creating data loaders
+Creating model
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'terminate called after throwing an instance of 'std::runtime_errorstd::runtime_error'
+'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  /pytorch/torch/csrc/autograd/profiler_cuda.cpp:24: initialization error
+Traceback (most recent call last):
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 724, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/huangdi/anaconda3/lib/python3.7/queue.py", line 179, in get
+    self.not_empty.wait(remaining)
+  File "/home/huangdi/anaconda3/lib/python3.7/threading.py", line 300, in wait
+    gotit = waiter.acquire(True, timeout)
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 50683) is killed by signal: Aborted. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 345, in <module>
+    main(args)
+  File "train.py", line 239, in main
+    evaluate_time(model, criterion, data_loader_test, device=device)
+  File "train.py", line 56, in evaluate_time
+    for image, target in metric_logger.log_every(data_loader, print_freq, header):
+  File "/home/huangdi/shift/vision/utils.py", line 138, in log_every
+    for obj in iterable:
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 804, in __next__
+    idx, data = self._get_data()
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 761, in _get_data
+    success, data = self._try_get_data()
+  File "/home/huangdi/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 737, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str))
+RuntimeError: DataLoader worker (pid(s) 50683) exited unexpectedly
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.236742734909058
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:28:47  loss: 6.9027 (6.9027)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.2089  data: 1.7844  max mem: 1174
+Test:  [100/782]  eta: 0:01:05  loss: 6.9034 (6.9081)  acc1: 0.0000 (0.7426)  acc5: 0.0000 (1.5470)  time: 0.0748  data: 0.0001  max mem: 1174
+Test:  [200/782]  eta: 0:00:48  loss: 6.9133 (6.9091)  acc1: 0.0000 (0.3731)  acc5: 0.0000 (1.1660)  time: 0.0698  data: 0.0001  max mem: 1174
+Test:  [300/782]  eta: 0:00:38  loss: 6.9013 (6.9081)  acc1: 0.0000 (0.2492)  acc5: 0.0000 (0.7787)  time: 0.0803  data: 0.0001  max mem: 1174
+Test:  [400/782]  eta: 0:00:30  loss: 6.9032 (6.9074)  acc1: 0.0000 (0.1870)  acc5: 0.0000 (0.5845)  time: 0.0797  data: 0.0001  max mem: 1174
+Test:  [500/782]  eta: 0:00:22  loss: 6.9119 (6.9076)  acc1: 0.0000 (0.1497)  acc5: 0.0000 (0.6238)  time: 0.0825  data: 0.0001  max mem: 1174
+Test:  [600/782]  eta: 0:00:14  loss: 6.9032 (6.9075)  acc1: 0.0000 (0.1248)  acc5: 0.0000 (0.5200)  time: 0.0771  data: 0.0001  max mem: 1174
+Test:  [700/782]  eta: 0:00:06  loss: 6.9058 (6.9075)  acc1: 0.0000 (0.1070)  acc5: 0.0000 (0.5572)  time: 0.0715  data: 0.0001  max mem: 1174
+Test: Total time: 0:00:59
+label-0
+55431.00799560547
+ * Acc@1 0.096 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.337081670761108
+Loading validation data
+Creating data loaders
+Creating model
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.292321443557739
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:32:19  loss: 6.9131 (6.9131)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.4803  data: 2.0763  max mem: 1175
+Test:  [100/782]  eta: 0:01:08  loss: 6.9069 (6.9101)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 0.0773  data: 0.0001  max mem: 1175
+Test:  [200/782]  eta: 0:00:49  loss: 6.9070 (6.9089)  acc1: 0.0000 (0.3887)  acc5: 0.0000 (0.7774)  time: 0.0675  data: 0.0001  max mem: 1175
+Test:  [300/782]  eta: 0:00:38  loss: 6.9038 (6.9079)  acc1: 0.0000 (0.2596)  acc5: 0.0000 (0.5191)  time: 0.0696  data: 0.0001  max mem: 1175
+Test:  [400/782]  eta: 0:00:29  loss: 6.9139 (6.9086)  acc1: 0.0000 (0.1948)  acc5: 0.0000 (0.7793)  time: 0.0664  data: 0.0001  max mem: 1175
+Test:  [500/782]  eta: 0:00:21  loss: 6.8958 (6.9078)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.7797)  time: 0.0747  data: 0.0001  max mem: 1175
+Test:  [600/782]  eta: 0:00:13  loss: 6.9078 (6.9083)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.6500)  time: 0.0773  data: 0.0001  max mem: 1175
+Test:  [700/782]  eta: 0:00:06  loss: 6.9111 (6.9080)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.5572)  time: 0.0693  data: 0.0001  max mem: 1175
+Test: Total time: 0:00:58
+label-781
+57709.088958740234
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.290262222290039
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:31:33  loss: 6.8936 (6.8936)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.4212  data: 2.0278  max mem: 1175
+Test:  [100/782]  eta: 0:01:06  loss: 6.9096 (6.9085)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 0.0710  data: 0.0001  max mem: 1175
+Test:  [200/782]  eta: 0:00:50  loss: 6.9027 (6.9090)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 0.0799  data: 0.0001  max mem: 1175
+Test:  [300/782]  eta: 0:00:40  loss: 6.9022 (6.9083)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.2596)  time: 0.0797  data: 0.0001  max mem: 1175
+Test:  [400/782]  eta: 0:00:30  loss: 6.9048 (6.9080)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.1948)  time: 0.0768  data: 0.0001  max mem: 1175
+Test:  [500/782]  eta: 0:00:22  loss: 6.9041 (6.9080)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.1559)  time: 0.0674  data: 0.0001  max mem: 1175
+Test:  [600/782]  eta: 0:00:14  loss: 6.9001 (6.9081)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.2600)  time: 0.0744  data: 0.0001  max mem: 1175
+Test:  [700/782]  eta: 0:00:06  loss: 6.9128 (6.9080)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.3343)  time: 0.0832  data: 0.0001  max mem: 1175
+Test: Total time: 0:01:00
+label-781
+74213.98812866211
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.223775625228882
+Loading validation data
+Creating data loaders
+Creating model
+label-0
+274371.80950164795
+Test:  [  0/782]  eta: 0:29:30  loss: 6.8952 (6.8952)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.2636  data: 1.7273  max mem: 1175
+Traceback (most recent call last):
+  File "train.py", line 350, in <module>
+    main(args)
+  File "train.py", line 244, in main
+    evaluate_time(model, criterion, data_loader_test, device=device)
+  File "train.py", line 71, in evaluate_time
+    i += 1
+TypeError: unsupported operand type(s) for +=: 'FunctionEventAvg' and 'int'
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.3815107345581055
+Loading validation data
+Creating data loaders
+Creating model
+label-0
+267490.53799819946
+Test:  [  0/782]  eta: 0:28:01  loss: 6.9050 (6.9050)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.1506  data: 1.6598  max mem: 1175
+label-1
+37805.824462890625
+label-2
+46404.41583251953
+label-3
+48643.96618652344
+label-4
+42174.721740722656
+label-5
+54546.94305419922
+label-6
+52931.297424316406
+label-7
+48228.157958984375
+label-8
+42895.90344238281
+label-9
+27703.1357421875
+label-10
+16770.56085205078
+label-11
+32959.45379638672
+label-12
+21908.159423828125
+label-13
+19005.472564697266
+label-14
+23504.543884277344
+label-15
+18314.94415283203
+label-16
+29100.41668701172
+label-17
+18991.13510131836
+label-18
+23007.808502197266
+label-19
+18397.983642578125
+label-20
+16731.67987060547
+label-21
+23466.847625732422
+label-22
+19295.775421142578
+label-23
+22808.19287109375
+label-24
+26768.92904663086
+label-25
+15904.160369873047
+label-26
+27483.679626464844
+label-27
+23237.184631347656
+label-28
+18616.191955566406
+label-29
+16267.328552246094
+label-30
+18549.856384277344
+label-31
+16581.534912109375
+label-32
+27717.02328491211
+label-33
+16654.848571777344
+label-34
+25542.304412841797
+label-35
+27847.872314453125
+label-36
+25263.648162841797
+label-37
+16881.280822753906
+label-38
+17682.43048095703
+label-39
+27315.582397460938
+label-40
+16473.79183959961
+label-41
+24897.727935791016
+label-42
+23358.78387451172
+label-43
+28680.991577148438
+label-44
+18202.817504882812
+label-45
+28899.199127197266
+label-46
+19956.064331054688
+label-47
+22131.839752197266
+label-48
+25467.96762084961
+label-49
+30135.615509033203
+label-50
+25526.879821777344
+label-51
+22460.255798339844
+label-52
+27556.223266601562
+label-53
+23950.656677246094
+label-54
+26155.231689453125
+label-55
+28958.977813720703
+label-56
+19911.679077148438
+label-57
+28461.023193359375
+label-58
+23706.752807617188
+label-59
+29309.60009765625
+label-60
+27300.929809570312
+label-61
+17414.207580566406
+label-62
+18328.32015991211
+label-63
+23464.671600341797
+label-64
+18253.216064453125
+label-65
+16008.543182373047
+label-66
+27482.528869628906
+label-67
+23765.534942626953
+label-68
+18733.121337890625
+label-69
+27689.631286621094
+label-70
+27053.024841308594
+label-71
+16025.790740966799
+label-72
+26554.271728515625
+label-73
+16378.367675781252
+label-74
+16446.46502685547
+label-75
+19663.039916992188
+label-76
+23752.704956054688
+label-77
+19563.807373046875
+label-78
+22920.672790527344
+label-79
+26255.807739257812
+label-80
+23044.41488647461
+label-81
+26273.632690429688
+label-82
+16519.263244628906
+label-83
+19990.17657470703
+label-84
+16524.832153320312
+label-85
+26292.864715576172
+label-86
+24015.169036865234
+label-87
+26181.311767578125
+label-88
+22151.488677978516
+label-89
+18435.103454589844
+label-90
+16264.383544921873
+label-91
+17733.919982910156
+label-92
+25253.951171875
+label-93
+22705.152587890625
+label-94
+19155.488067626953
+label-95
+23965.18426513672
+label-96
+18465.92059326172
+label-97
+17423.26498413086
+label-98
+18759.10400390625
+label-99
+17812.6064453125
+label-100
+18487.07308959961
+Test:  [100/782]  eta: 0:01:54  loss: 6.9062 (6.9078)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 0.1397  data: 0.0002  max mem: 1175
+label-101
+25319.00811767578
+label-102
+27644.863830566406
+label-103
+23486.561737060547
+label-104
+26552.512115478516
+label-105
+16161.72915649414
+label-106
+19031.616333007812
+label-107
+16714.20703125
+label-108
+29534.39971923828
+label-109
+18334.240020751953
+label-110
+21596.95849609375
+label-111
+25240.352783203125
+label-112
+16055.905426025389
+label-113
+20237.05633544922
+label-114
+18456.928588867188
+label-115
+27717.280212402344
+label-116
+16336.382507324219
+label-117
+18375.230743408203
+label-118
+23045.249237060547
+label-119
+25237.120971679688
+label-120
+23675.487854003906
+label-121
+18867.553192138672
+label-122
+23892.64080810547
+label-123
+25836.60772705078
+label-124
+24276.446411132812
+label-125
+24317.791412353516
+label-126
+16022.496154785156
+label-127
+23530.624114990234
+label-128
+24190.494995117188
+label-129
+23825.537109375
+label-130
+18843.58447265625
+label-131
+24283.039794921875
+label-132
+19571.327697753906
+label-133
+22476.0322265625
+label-134
+25075.169464111328
+label-135
+18285.56768798828
+label-136
+25518.56137084961
+label-137
+16221.664672851562
+label-138
+28231.008239746094
+label-139
+23953.441467285156
+label-140
+28492.577545166016
+label-141
+22201.56820678711
+label-142
+18547.296630859375
+label-143
+24573.536193847656
+label-144
+16127.296722412111
+label-145
+19341.854858398438
+label-146
+40859.840087890625
+label-147
+20446.337524414062
+label-148
+25118.528381347656
+label-149
+26402.208099365234
+label-150
+16342.27035522461
+label-151
+25912.353637695312
+label-152
+16475.74395751953
+label-153
+19147.519439697266
+label-154
+16464.670440673828
+label-155
+27340.031311035156
+label-156
+16505.40853881836
+label-157
+25768.831512451172
+label-158
+22887.135528564453
+label-159
+25826.528106689453
+label-160
+19941.728454589844
+label-161
+22857.441040039062
+label-162
+19303.934692382812
+label-163
+31763.07257080078
+label-164
+24195.96743774414
+label-165
+22059.201263427734
+label-166
+24934.56039428711
+label-167
+22835.77572631836
+label-168
+25866.752380371094
+label-169
+24325.76104736328
+label-170
+18831.198669433594
+label-171
+22360.575958251953
+label-172
+26831.68099975586
+label-173
+24568.672393798828
+label-174
+25648.89678955078
+label-175
+25833.79132080078
+label-176
+19848.959533691406
+label-177
+16766.143524169922
+label-178
+27098.56021118164
+label-179
+23446.303833007812
+label-180
+16464.41632080078
+label-181
+25047.199127197266
+label-182
+16567.77523803711
+label-183
+20337.63232421875
+label-184
+37873.72509765625
+label-185
+21731.74346923828
+label-186
+16146.049316406248
+label-187
+28084.606689453125
+label-188
+29295.582946777344
+label-189
+29001.438873291016
+label-190
+17923.04052734375
+label-191
+26424.319885253906
+label-192
+17696.830505371094
+label-193
+18874.33612060547
+label-194
+16159.392028808592
+label-195
+26348.83135986328
+label-196
+22917.216552734375
+label-197
+19490.943603515625
+label-198
+16333.215454101562
+label-199
+25199.678955078125
+label-200
+18456.735473632812
+Test:  [200/782]  eta: 0:01:31  loss: 6.9091 (6.9089)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3887)  time: 0.1536  data: 0.0002  max mem: 1175
+label-201
+17244.063507080078
+label-202
+18529.536743164062
+label-203
+23586.655334472656
+label-204
+25844.831665039062
+label-205
+16415.679626464844
+label-206
+27351.48712158203
+label-207
+16311.00622558594
+label-208
+25169.5693359375
+label-209
+16990.335571289062
+label-210
+25628.478637695312
+label-211
+23519.16650390625
+label-212
+30173.983917236328
+label-213
+20314.81561279297
+label-214
+33860.38415527344
+label-215
+42151.00720214844
+label-216
+19701.50552368164
+label-217
+23781.504272460938
+label-218
+27116.992614746094
+label-219
+22727.200164794922
+label-220
+30383.455017089844
+label-221
+31047.904357910156
+label-222
+26102.49722290039
+label-223
+29339.199951171875
+label-224
+20071.6787109375
+label-225
+28704.576568603516
+label-226
+20191.55047607422
+label-227
+27845.599853515625
+label-228
+16094.753326416016
+label-229
+25332.479461669922
+label-230
+23078.526794433594
+label-231
+21287.263793945312
+label-232
+23842.273010253906
+label-233
+18810.400177001953
+label-234
+16631.038513183594
+label-235
+24632.671508789062
+label-236
+25393.24774169922
+label-237
+16532.064086914062
+label-238
+28155.872192382812
+label-239
+22328.15966796875
+label-240
+23139.328399658203
+label-241
+23834.14337158203
+label-242
+20034.879516601562
+label-243
+23443.19940185547
+label-244
+19287.166625976562
+label-245
+16493.567901611328
+label-246
+25679.744079589844
+label-247
+16751.007354736328
+label-248
+19536.543518066406
+label-249
+17747.96856689453
+label-250
+25313.505310058594
+label-251
+16529.280029296875
+label-252
+16698.04852294922
+label-253
+19749.50521850586
+label-254
+22780.863006591797
+label-255
+19686.59161376953
+label-256
+25890.721557617188
+label-257
+28867.2001953125
+label-258
+17740.76821899414
+label-259
+19160.032806396484
+label-260
+28459.456909179688
+label-261
+25226.625
+label-262
+16718.591186523438
+label-263
+19459.16717529297
+label-264
+17072.991577148438
+label-265
+26967.007751464844
+label-266
+20020.224151611328
+label-267
+22547.169311523438
+label-268
+23010.624450683594
+label-269
+16357.246765136719
+label-270
+19003.520782470703
+label-271
+32847.70935058594
+label-272
+18734.208129882812
+label-273
+16276.512207031248
+label-274
+30485.76055908203
+label-275Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.316456079483032
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:30:28  loss: 6.9282 (6.9282)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.3379  data: 1.9196  max mem: 1175
+Test:  [100/782]  eta: 0:01:55  loss: 6.9070 (6.9080)  acc1: 0.0000 (0.7735)  acc5: 0.0000 (0.7735)  time: 0.1492  data: 0.0002  max mem: 1175
+Test:  [200/782]  eta: 0:01:32  loss: 6.9143 (6.9083)  acc1: 0.0000 (0.3887)  acc5: 0.0000 (0.3887)  time: 0.1425  data: 0.0002  max mem: 1175
+Test:  [300/782]  eta: 0:01:14  loss: 6.9096 (6.9082)  acc1: 0.0000 (0.2596)  acc5: 0.0000 (0.3893)  time: 0.1461  data: 0.0007  max mem: 1175
+Test:  [400/782]  eta: 0:00:58  loss: 6.9028 (6.9085)  acc1: 0.0000 (0.1948)  acc5: 0.0000 (0.4871)  time: 0.1594  data: 0.0002  max mem: 1175
+Test:  [500/782]  eta: 0:00:43  loss: 6.9107 (6.9083)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.5458)  time: 0.1513  data: 0.0002  max mem: 1175
+Test:  [600/782]  eta: 0:00:27  loss: 6.9093 (6.9078)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.5564)  time: 0.1499  data: 0.0002  max mem: 1175
+Test:  [700/782]  eta: 0:00:12  loss: 6.9090 (6.9079)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.5884)  time: 0.1465  data: 0.0002  max mem: 1175
+Test: Total time: 0:01:57
+17668937.479042053
+ * Acc@1 0.100 Acc@5 0.528
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.286736726760864
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:28:48  loss: 6.8920 (6.8920)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.2100  data: 1.6844  max mem: 1174
+Test:  [100/782]  eta: 0:01:56  loss: 6.9098 (6.9079)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7735)  time: 0.1422  data: 0.0001  max mem: 1174
+Test:  [200/782]  eta: 0:01:32  loss: 6.9063 (6.9078)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7774)  time: 0.1485  data: 0.0002  max mem: 1174
+Test:  [300/782]  eta: 0:01:15  loss: 6.9170 (6.9084)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.5191)  time: 0.1429  data: 0.0005  max mem: 1174
+Test:  [400/782]  eta: 0:00:59  loss: 6.9088 (6.9081)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3897)  time: 0.1534  data: 0.0005  max mem: 1174
+Test:  [500/782]  eta: 0:00:43  loss: 6.9048 (6.9082)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.4678)  time: 0.1475  data: 0.0005  max mem: 1174
+Test:  [600/782]  eta: 0:00:28  loss: 6.9078 (6.9083)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.6500)  time: 0.1649  data: 0.0005  max mem: 1174
+Test:  [700/782]  eta: 0:00:12  loss: 6.9100 (6.9082)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.5572)  time: 0.1515  data: 0.0002  max mem: 1174
+Test: Total time: 0:01:59
+19092777.328964233
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.293432950973511
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:29:17  loss: 6.8867 (6.8867)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.2476  data: 1.6904  max mem: 1174
+Test:  [100/782]  eta: 0:01:57  loss: 6.9071 (6.9078)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (1.5470)  time: 0.1448  data: 0.0004  max mem: 1174
+Test:  [200/782]  eta: 0:01:32  loss: 6.9087 (6.9097)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7774)  time: 0.1453  data: 0.0001  max mem: 1174
+Test:  [300/782]  eta: 0:01:14  loss: 6.9117 (6.9091)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7787)  time: 0.1437  data: 0.0002  max mem: 1174
+Test:  [400/782]  eta: 0:00:58  loss: 6.9113 (6.9090)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.5845)  time: 0.1473  data: 0.0002  max mem: 1174
+Test:  [500/782]  eta: 0:00:42  loss: 6.9119 (6.9087)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.6238)  time: 0.1444  data: 0.0002  max mem: 1174
+Test:  [600/782]  eta: 0:00:27  loss: 6.9095 (6.9082)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.5200)  time: 0.1448  data: 0.0002  max mem: 1174
+Test:  [700/782]  eta: 0:00:12  loss: 6.9120 (6.9081)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.5572)  time: 0.1506  data: 0.0001  max mem: 1174
+Test: Total time: 0:01:57
+18486507.20944214
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.239864110946655
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:27:42  loss: 6.9250 (6.9250)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.1262  data: 1.6972  max mem: 1174
+Test:  [100/782]  eta: 0:01:56  loss: 6.9021 (6.9069)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 0.1475  data: 0.0002  max mem: 1174
+Test:  [200/782]  eta: 0:01:33  loss: 6.9121 (6.9060)  acc1: 0.0000 (0.3887)  acc5: 0.0000 (0.3887)  time: 0.1471  data: 0.0002  max mem: 1174
+Test:  [300/782]  eta: 0:01:15  loss: 6.9155 (6.9069)  acc1: 0.0000 (0.2596)  acc5: 0.0000 (0.2596)  time: 0.1480  data: 0.0002  max mem: 1174
+Test:  [400/782]  eta: 0:00:58  loss: 6.9172 (6.9071)  acc1: 0.0000 (0.1948)  acc5: 0.0000 (0.3897)  time: 0.1507  data: 0.0002  max mem: 1174
+Test:  [500/782]  eta: 0:00:43  loss: 6.9110 (6.9075)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.3119)  time: 0.1495  data: 0.0006  max mem: 1174
+Test:  [600/782]  eta: 0:00:27  loss: 6.9115 (6.9073)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.3900)  time: 0.1591  data: 0.0002  max mem: 1174
+Test:  [700/782]  eta: 0:00:12  loss: 6.9112 (6.9078)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.3343)  time: 0.1480  data: 0.0002  max mem: 1174
+Test: Total time: 0:01:59
+18887591.55665207
+ * Acc@1 0.100 Acc@5 0.500
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.219455003738403
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:26:23  loss: 6.9009 (6.9009)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.0245  data: 1.5450  max mem: 1174
+Test:  [100/782]  eta: 0:01:58  loss: 6.9056 (6.9064)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7735)  time: 0.1421  data: 0.0002  max mem: 1174
+Test:  [200/782]  eta: 0:01:33  loss: 6.9073 (6.9077)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3887)  time: 0.1488  data: 0.0002  max mem: 1174
+Test:  [300/782]  eta: 0:01:15  loss: 6.9074 (6.9075)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.4205)  time: 0.1503  data: 0.0002  max mem: 1174
+Test:  [400/782]  eta: 0:00:59  loss: 6.9096 (6.9084)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3156)  time: 0.1452  data: 0.0002  max mem: 1174
+Test:  [500/782]  eta: 0:00:43  loss: 6.9128 (6.9081)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.4086)  time: 0.1527  data: 0.0002  max mem: 1174
+Test:  [600/782]  eta: 0:00:27  loss: 6.9103 (6.9079)  acc1: 0.0000 (0.1248)  acc5: 0.0000 (0.4706)  time: 0.1456  data: 0.0002  max mem: 1174
+Test:  [700/782]  eta: 0:00:12  loss: 6.9027 (6.9078)  acc1: 0.0000 (0.1271)  acc5: 0.0000 (0.5751)  time: 0.1435  data: 0.0001  max mem: 1174
+Test: Total time: 0:01:59
+18671530.251586914
+ * Acc@1 0.114 Acc@5 0.516
+Not using distributed mode
+Namespace(apex=False, apex_opt_level='O1', batch_size=64, cache_dataset=False, data_path='/home/huangdi/datasets/imagenet/', device='cuda', dist_url='env://', distributed=False, epochs=300, lr=0.045, lr_gamma=0.98, lr_step_size=1, model='shufflenet_v2_x1_0', momentum=0.9, output_dir='./checkpoint/shufflenet_v2_x1_0', pretrained=False, print_freq=100, resume='', start_epoch=0, sync_bn=False, test_only=False, test_time=True, weight_decay=4e-05, workers=16, world_size=1)
+Loading data
+Loading training data
+Took 4.2814130783081055
+Loading validation data
+Creating data loaders
+Creating model
+Test:  [  0/782]  eta: 0:30:51  loss: 6.9331 (6.9331)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 2.3683  data: 1.7764  max mem: 1174
+Test:  [100/782]  eta: 0:01:57  loss: 6.9060 (6.9085)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.0000)  time: 0.1434  data: 0.0002  max mem: 1174
+Test:  [200/782]  eta: 0:01:32  loss: 6.8968 (6.9086)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.7774)  time: 0.1450  data: 0.0002  max mem: 1174
+Test:  [300/782]  eta: 0:01:14  loss: 6.9051 (6.9085)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.5191)  time: 0.1454  data: 0.0005  max mem: 1174
+Test:  [400/782]  eta: 0:00:58  loss: 6.9103 (6.9084)  acc1: 0.0000 (0.0000)  acc5: 0.0000 (0.3897)  time: 0.1499  data: 0.0005  max mem: 1174
+Test:  [500/782]  eta: 0:00:42  loss: 6.9084 (6.9088)  acc1: 0.0000 (0.1559)  acc5: 0.0000 (0.4678)  time: 0.1427  data: 0.0002  max mem: 1174
+Test:  [600/782]  eta: 0:00:27  loss: 6.9058 (6.9086)  acc1: 0.0000 (0.1300)  acc5: 0.0000 (0.3900)  time: 0.1463  data: 0.0002  max mem: 1174
+Test:  [700/782]  eta: 0:00:12  loss: 6.9011 (6.9080)  acc1: 0.0000 (0.1114)  acc5: 0.0000 (0.5572)  time: 0.1498  data: 0.0002  max mem: 1174
+Test: Total time: 0:01:57
+18982436.33984375
+ * Acc@1 0.100 Acc@5 0.500
