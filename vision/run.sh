@@ -7,7 +7,7 @@ do
         csv="csvs/"$gpu_type"-"$model".csv"
         echo "remove "$csv
         rm -rf $csv
-        for g in 1 2 4 8 16 32 64 128 256 512
+        for g in 1 2 4 8
         do
             echo "running group="$g
             CUDA_VISIBLE_DEVICES=$gpu_id \

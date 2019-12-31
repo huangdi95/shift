@@ -41,16 +41,13 @@ def main(args):
     time = time / args.repeat
     write_to_csv(args, time)
     print('Done!')
-##    print(input)
-#    torch.cuda.synchronize()
-#    start = time.time()
-#    out = model(input)
-#    torch.cuda.synchronize()
-#    print(out.shape)
-#    end = time.time()
-#    print(end - start)
 
 def write_to_csv(args, time_act):
+    dir_name = os.path.dirname(args.filename)
+    if not os.path.isdir(dir_name):
+        os.makedirs(dir_name)
+    if not os.path.exists(args.filename):
+        csv_header(args)
     print('Calculating...')
     P = args.P
     Bandwidth = args.Bandwidth
@@ -81,12 +78,16 @@ def write_to_csv(args, time_act):
         time_compute, time_io, time_total, time_act, efficiency,
         P_act, g_balance]]
     print('Writing...')
-    dir_name = './csvs/'
-    if not os.path.isdir(dir_name):
-        os.makedirs(dir_name)
     with open(args.filename, 'a+', newline='') as f:
         w = csv.writer(f)
         w.writerows(data)
+
+def csv_header(args):
+    print('Creating csv...')
+    with open(args.filename, 'a+', newline='') as f:
+        w = csv.writer(f)
+        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'model',
+            'N', 'group', 'type_byte', 'time_act']])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='MEASURE TIME')

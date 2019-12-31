@@ -39,6 +39,11 @@ def main(args):
     print('Done!')
 
 def write_to_csv(args, time_act):
+    dir_name = os.path.dirname(args.filename)
+    if not os.path.isdir(dir_name):
+        os.makedirs(dir_name)
+    if not os.path.exists(args.filename):
+        csv_header(args)
     print('Calculating...')
     P = args.P
     Bandwidth = args.Bandwidth
@@ -47,12 +52,16 @@ def write_to_csv(args, time_act):
     type_byte = args.type_byte
     data = [['', P, Bandwidth, args.model, N, group, type_byte, time_act]]
     print('Writing...')
-    dir_name = './csvs/'
-    if not os.path.isdir(dir_name):
-        os.makedirs(dir_name)
     with open(args.filename, 'a+', newline='') as f:
         w = csv.writer(f)
         w.writerows(data)
+
+def csv_header(args):
+    print('Creating csv...')
+    with open(args.filename, 'a+', newline='') as f:
+        w = csv.writer(f)
+        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'model',
+            'N', 'group', 'type_byte', 'time_act']])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='MEASURE TIME')
@@ -81,9 +90,4 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    print('Creating csv...')
-    with open(args.filename, 'a+', newline='') as f:
-        w = csv.writer(f)
-        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'model',
-            'N', 'group', 'type_byte', 'time_act']])
     main(args)
