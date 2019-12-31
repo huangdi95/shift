@@ -1,7 +1,7 @@
 #!/bin/bash
-MODEL=shufflenet_v2
+MODEL=shufflenet_v2_x1_0
 WORKERS=16
-CUDA_VISIBLE_DEVICES=0 \
+CUDA_VISIBLE_DEVICES=1 \
 python train.py \
     --model $MODEL \
     --epochs 300 \
@@ -15,4 +15,4 @@ python train.py \
     --workers=$WORKERS \
     --test-time \
     --data-path $HOME/datasets/imagenet/ \
-    | & tee -a ./checkpoint/$MODEL/log
+    |& tee -a ./checkpoint/$MODEL/log
