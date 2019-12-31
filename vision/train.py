@@ -51,17 +51,14 @@ def evaluate_time(model, criterion, data_loader, device, print_freq=100):
     metric_logger = utils.MetricLogger(delimiter="  ")
     header = 'Test:'
     with torch.no_grad():
+        iteration = 0
+        time_act = 0
         for image, target in metric_logger.log_every(data_loader, print_freq, header):
             image = image.to(device, non_blocking=True)
             target = target.to(device, non_blocking=True)
             with torch.autograd.profiler.profile(use_cuda=True) as prof:
-                with torch.autograd.profiler.record_function("label-z"):
+                with torch.autograd.profiler.record_function("label-"+str(iteration)):
                     output = model(image)
-            prof.export_chrome_trace('./trace/shufflenet')
-            for i in prof.key_averages():
-                if i.key.startswith('label-'):
-                    print(i.key)
-                    print(i.cuda_time)
             loss = criterion(output, target)
 
             acc1, acc5 = utils.accuracy(output, target, topk=(1, 5))
@@ -71,6 +68,14 @@ def evaluate_time(model, criterion, data_loader, device, print_freq=100):
             metric_logger.update(loss=loss.item())
             metric_logger.meters['acc1'].update(acc1.item(), n=batch_size)
             metric_logger.meters['acc5'].update(acc5.item(), n=batch_size)
+            iteration += 1
+            prof.export_chrome_trace('./trace/shufflenet'+str(iteration))
+            for i in prof.key_averages():
+                if i.key.startswith('label-'):
+#                    print(i.key)
+#                    print(i.cuda_time)
+                    time_act += i.cuda_time
+        print(time_act)
     # gather the stats from all processes
     metric_logger.synchronize_between_processes()
 
@@ -332,7 +337,7 @@ def parse_args():
     parser.add_argument(
         '--test-time', 
         help='test the time of inference, output a trace',
-        dest="test_only",
+        dest="test_time",
         action="store_true")
 
     args = parser.parse_args()
