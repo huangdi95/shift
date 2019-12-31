@@ -81,6 +81,9 @@ def write_to_csv(args, time_act):
         time_compute, time_io, time_total, time_act, efficiency,
         P_act, g_balance]]
     print('Writing...')
+    dir_name = './csvs/'
+    if not os.path.isdir(dir_name):
+        os.makedirs(dir_name)
     with open(args.filename, 'a+', newline='') as f:
         w = csv.writer(f)
         w.writerows(data)

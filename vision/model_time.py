@@ -47,6 +47,9 @@ def write_to_csv(args, time_act):
     type_byte = args.type_byte
     data = [['', P, Bandwidth, args.model, N, group, type_byte, time_act]]
     print('Writing...')
+    dir_name = './csvs/'
+    if not os.path.isdir(dir_name):
+        os.makedirs(dir_name)
     with open(args.filename, 'a+', newline='') as f:
         w = csv.writer(f)
         w.writerows(data)
