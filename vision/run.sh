@@ -11,7 +11,7 @@ do
         do
             echo "running group="$g
             CUDA_VISIBLE_DEVICES=$gpu_id \
-            python measure_time.py \
+            python model_time.py \
                 --group=$g \
                 --filename=$csv \
                 --gpu-type=$gpu_type \
