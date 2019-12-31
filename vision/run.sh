@@ -15,7 +15,7 @@ do
                 --group=$g \
                 --filename=$csv \
                 --gpu-type=$gpu_type \
-                --model=$modeli \
+                --model=$model \
              2>&1 | tee logs/$gpu_type"-"$model".log"
         done
     done
