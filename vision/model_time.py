@@ -16,10 +16,10 @@ def main(args):
     c1 = args.c1
     c2 = args.c2
     input = torch.randn(N, c1, h, w).cuda()
-    model = models.__dict__[args.model](pretrained=False, groups=args.group).cuda()
+    model = models.__dict__[args.model](pretrained=False, groups=args.group, max_group=args.max_group).cuda()
     print('Profiling...')
     with torch.autograd.profiler.profile(use_cuda=True) as prof:
-#        model(input) # Warmup CUDA memory allocator and profiler
+        model(input) # Warmup CUDA memory allocator and profiler
         for i in list(range(args.repeat)):
             with torch.autograd.profiler.record_function("label-"+str(i)):
                 model(input)
@@ -65,7 +65,7 @@ def csv_header(args):
 
 def parse_args():
     parser = argparse.ArgumentParser(description='MEASURE TIME')
-    parser.add_argument('--N', default=64, type=int)
+    parser.add_argument('--N', default=8, type=int)
     parser.add_argument('--h', default=224, type=int)
     parser.add_argument('--w', default=None, type=int)
     parser.add_argument('--c1', default=3, type=int)
@@ -80,6 +80,7 @@ def parse_args():
     parser.add_argument('--repeat', default=5, type=int)
     parser.add_argument('--gpu-type', default='V100-16GB', type=str)
     parser.add_argument('--model', default='shufflenet_v2_x1_5', type=str)
+    parser.add_argument('--max-group', default=32, type=int)
     args = parser.parse_args()
     if args.w is None:
         args.w = args.h

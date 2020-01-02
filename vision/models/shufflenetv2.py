@@ -5,7 +5,7 @@ from .utils import load_state_dict_from_url
 
 __all__ = [
     'ShuffleNetV2', 'shufflenet_v2_x0_5', 'shufflenet_v2_x1_0',
-    'shufflenet_v2_x1_5', 'shufflenet_v2_x2_0'
+    'shufflenet_v2_x1_5', 'shufflenet_v2_x2_0', 'shufflenet_v2_group'
 ]
 
 model_urls = {
@@ -81,7 +81,7 @@ class InvertedResidual(nn.Module):
 
 
 class ShuffleNetV2(nn.Module):
-    def __init__(self, stages_repeats, stages_out_channels, num_classes=1000, groups=1):
+    def __init__(self, stages_repeats, stages_out_channels, num_classes=1000, groups=1, **kwargs):
         super(ShuffleNetV2, self).__init__()
 
         if len(stages_repeats) != 3:
@@ -184,8 +184,8 @@ def shufflenet_v2_x1_5(pretrained=False, progress=True, **kwargs):
         progress (bool): If True, displays a progress bar of the download to stderr
     """
     return _shufflenetv2('shufflenetv2_x1.5', pretrained, progress,
-                         [4, 8, 4], [32, 256, 512, 1024, 1024], **kwargs)
-
+                         [4, 8, 4], [24, 176, 352, 704, 1024], **kwargs)
+#                         [4, 8, 4], [1024, 1024, 1024, 1024, 1024], **kwargs)
 
 def shufflenet_v2_x2_0(pretrained=False, progress=True, **kwargs):
     """
@@ -199,3 +199,18 @@ def shufflenet_v2_x2_0(pretrained=False, progress=True, **kwargs):
     """
     return _shufflenetv2('shufflenetv2_x2.0', pretrained, progress,
                          [4, 8, 4], [24, 244, 488, 976, 2048], **kwargs)
+
+def shufflenet_v2_group(pretrained=False, progress=True, **kwargs):
+    """
+    Constructs a ShuffleNetV2 with 1.5x output channels, as described in
+    `"ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design"
+    <https://arxiv.org/abs/1807.11164>`_.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        progress (bool): If True, displays a progress bar of the download to stderr
+    """
+    g = kwargs['max_group']
+    c = 2 * g
+    return _shufflenetv2('shufflenetv2_x1.5', pretrained, progress,
+                         [4, 8, 4], [c, c, c, c, c], **kwargs)
