@@ -86,12 +86,14 @@ def csv_header(args):
     print('Creating csv...')
     with open(args.filename, 'a+', newline='') as f:
         w = csv.writer(f)
-        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'model',
-            'N', 'group', 'type_byte', 'time_act']])
+        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'N', 'h', 'w', 'c1', 'c2',
+            'group', 'num_layers', 'type_byte', 'input_size', 'weight_size', 'output_size', 
+            'FLOPS', 'IO(load or store)', 'time_c(us)', 'time_m(us)', 'time_total(us)', 
+            'time_act', 'efficiency_c', 'P_act', 'g_best']])
 
 def parse_args():
     parser = argparse.ArgumentParser(description='MEASURE TIME')
-    parser.add_argument('--N', default=64, type=int)
+    parser.add_argument('--N', default=8, type=int)
     parser.add_argument('--h', default=28, type=int)
     parser.add_argument('--w', default=None, type=int)
     parser.add_argument('--c1', default=128, type=int)
@@ -146,12 +148,5 @@ def mat(args):
 
 if __name__ == '__main__':
     args = parse_args()
-    print('Creating csv...')
-    with open(args.filename, 'a+', newline='') as f:
-        w = csv.writer(f)
-        w.writerows([[args.gpu_type, 'P', 'Bandwidth', 'N', 'h', 'w', 'c1', 'c2',
-            'group', 'num_layers', 'type_byte', 'input_size', 'weight_size', 'output_size', 
-            'FLOPS', 'IO(load or store)', 'time_c(us)', 'time_m(us)', 'time_total(us)', 
-            'time_act', 'efficiency_c', 'P_act', 'g_best']])
     main(args)
 #    mat(args)
